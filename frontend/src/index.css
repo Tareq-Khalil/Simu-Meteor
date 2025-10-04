@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AstroGuard Defense Systems - Professional Space-themed Design System */
+
+@layer base {
+  :root {
+    /* Professional Space Theme - Deep Cosmic Palette */
+    --background: 225 39% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 35% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 35% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 5%;
+
+    --secondary: 215 25% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 25% 15%;
+    --muted-foreground: 217 10% 64%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 222 84% 5%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 27% 16%;
+    --input: 215 27% 16%;
+    --ring: 217 91% 60%;
+    
+    /* Professional space-specific colors */
+    --quantum-blue: 217 91% 60%;
+    --stellar-cyan: 195 100% 50%;
+    --plasma-orange: 25 95% 53%;
+    --titanium-gray: 220 9% 46%;
+    --alert-red: 0 62% 50%;
+    --mission-green: 142 76% 36%;
+    --void-purple: 266 83% 58%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar variables */
+    --sidebar-background: 224 35% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 84% 5%;
+    --sidebar-accent: 215 25% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 215 27% 16%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  /* Light theme (keeping dark for consistency) */
+  .light {
+    --background: 225 39% 4%;
+    --foreground: 210 40% 98%;
+    /* ... keeping all dark theme values for consistency */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: linear-gradient(135deg, hsl(225 39% 4%), hsl(217 91% 60% / 0.05));
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* Enhanced cosmic background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, hsl(217 91% 60% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(195 100% 50% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(25 95% 53% / 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 60% 30%, hsl(266 83% 58% / 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Professional scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+}
+
+@layer components {
+  /* Professional cards */
+  .card-command {
+    @apply bg-card/60 border-border/50 backdrop-blur-xl;
+    box-shadow: 0 8px 32px hsl(217 91% 60% / 0.15);
+  }
+
+  .card-mission {
+    @apply bg-card/60 border-border/50 backdrop-blur-sm;
+    box-shadow: 0 4px 20px hsl(224 35% 8% / 0.8);
+  }
+}
+
+@layer utilities {
+  /* Custom gradient utilities */
+  .bg-gradient-quantum {
+    background: linear-gradient(135deg, hsl(217 91% 60% / 0.9), hsl(195 100% 50% / 0.8));
+  }
+  
+  .bg-gradient-stellar {
+    background: linear-gradient(180deg, hsl(225 39% 4%), hsl(217 91% 60% / 0.1));
+  }
+  
+  .bg-gradient-plasma {
+    background: linear-gradient(45deg, hsl(25 95% 53%), hsl(45 93% 47%));
+  }
+
+  .bg-gradient-command {
+    background: linear-gradient(135deg, hsl(224 35% 8%), hsl(217 91% 60% / 0.2));
+  }
+
+  /* Professional glow effects */
+  .quantum-glow {
+    box-shadow: 0 0 20px hsl(217 91% 60% / 0.5);
+  }
+  
+  .plasma-glow {
+    box-shadow: 0 0 30px hsl(25 95% 53% / 0.3);
+  }
+
+  .shadow-command {
+    box-shadow: 0 8px 32px hsl(217 91% 60% / 0.15);
+  }
+
+  .shadow-mission {
+    box-shadow: 0 4px 20px hsl(224 35% 8% / 0.8);
+  }
+
+  /* Professional button variants */
+  .btn-quantum {
+    @apply text-white font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:scale-105;
+    background: linear-gradient(135deg, hsl(217 91% 60% / 0.9), hsl(195 100% 50% / 0.8));
+  }
+
+  .btn-quantum:hover {
+    box-shadow: 0 8px 32px hsl(217 91% 60% / 0.15);
+  }
+
+  .btn-mission {
+    @apply text-white font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:scale-105;
+    background: linear-gradient(135deg, hsl(142 76% 36%), hsl(195 100% 50%));
+  }
+
+  .btn-mission:hover {
+    box-shadow: 0 4px 20px hsl(224 35% 8% / 0.8);
+  }
+
+  .btn-alert {
+    @apply text-white font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:scale-105;
+    background: linear-gradient(135deg, hsl(0 62% 50%), hsl(25 95% 53%));
+  }
+
+  .btn-alert:hover {
+    box-shadow: 0 4px 20px hsl(224 35% 8% / 0.8);
+  }
+
+  /* Custom color utilities */
+  .text-quantum-blue {
+    color: hsl(217 91% 60%);
+  }
+
+  .text-stellar-cyan {
+    color: hsl(195 100% 50%);
+  }
+
+  .text-plasma-orange {
+    color: hsl(25 95% 53%);
+  }
+
+  .text-titanium-gray {
+    color: hsl(220 9% 46%);
+  }
+
+  .text-alert-red {
+    color: hsl(0 62% 50%);
+  }
+
+  .text-mission-green {
+    color: hsl(142 76% 36%);
+  }
+
+  .text-void-purple {
+    color: hsl(266 83% 58%);
+  }
+
+  .bg-quantum-blue {
+    background-color: hsl(217 91% 60%);
+  }
+
+  .bg-stellar-cyan {
+    background-color: hsl(195 100% 50%);
+  }
+
+  .bg-plasma-orange {
+    background-color: hsl(25 95% 53%);
+  }
+
+  .bg-titanium-gray {
+    background-color: hsl(220 9% 46%);
+  }
+
+  .bg-alert-red {
+    background-color: hsl(0 62% 50%);
+  }
+
+  .bg-mission-green {
+    background-color: hsl(142 76% 36%);
+  }
+
+  .bg-void-purple {
+    background-color: hsl(266 83% 58%);
+  }
+
+  /* Professional animations */
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float-gentle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+
+  .animate-rotate-slow {
+    animation: rotate-slow 30s linear infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      opacity: 1;
+      box-shadow: 0 0 20px hsl(217 91% 60% / 0.5);
+    }
+    50% { 
+      opacity: 0.7;
+      box-shadow: 0 0 30px hsl(25 95% 53% / 0.3);
+    }
+  }
+
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-8px) rotate(2deg); }
+    66% { transform: translateY(-4px) rotate(-1deg); }
+  }
+
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+/* Professional responsive utilities */
+@media (max-width: 768px) {
+  .bg-gradient-quantum,
+  .bg-gradient-stellar,
+  .bg-gradient-plasma,
+  .bg-gradient-command {
+    background-attachment: scroll;
+  }
+}
